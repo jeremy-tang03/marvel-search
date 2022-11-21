@@ -1,11 +1,12 @@
 import { config } from "dotenv";
 
+// add your api keys to config.env
 const PRIVATE_KEY = config.env.MARVEL_PRIVATE_KEY;
 const PUBLIC_KEY = config.env.MARVEL_PUBLIC_KEY;
 
 async function fetchMarvelData() {
 
-    // you need a new ts every request                                                                                    
+    // ts, used to create different hash every time                                                                               
     let ts = new Date().getTime();
     let hash = CryptoJS.MD5(ts + PRIVATE_KEY + PUBLIC_KEY).toString();
 
