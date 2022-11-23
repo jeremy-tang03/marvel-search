@@ -1,0 +1,12 @@
+admin/
+published_content/
+resources/
+private_content/
+temp*
+*.pdf
+.lastcommit
+.vscode
+markdown_tools/
+**/node_modules/
+.ssh/
+config.js
