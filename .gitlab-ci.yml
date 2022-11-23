@@ -51,4 +51,4 @@ lint:
   before_script:
     - npm install -g eslint
   script:
-    - eslint --ext .js .
+    - cd server && eslint --ext .js . && cd ../client && eslint --ext .js .
