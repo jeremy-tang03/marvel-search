@@ -33,6 +33,11 @@ class db {
         await instance.client.close();
         instance = null;
     }
+
+    // params array of objects
+    async insertCharacters(charObjArr) {
+        instance.collection.insertMany(charObjArr);
+    }
     
     // TODO return character names
     
