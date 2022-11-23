@@ -14,6 +14,7 @@ build:
     - main
     - master
     - staging
+    - CI/CD
   cache:
     paths:
       - server/node_modules/
@@ -32,6 +33,7 @@ test:
     - main
     - master
     - staging
+    - CI/CD
   dependencies:
     - build
   script:
@@ -45,6 +47,7 @@ lint:
     - main
     - master
     - staging
+    - CI/CD
   before_script:
     - npm install -g eslint
   script:
