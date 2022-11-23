@@ -4,6 +4,7 @@ const API_URL = 'https://gateway.marvel.com/';
 const CHARACTERS_PATH = 'v1/public/characters';
 const COMICS_PATH = 'v1/public/comics';
 const NUM_OF_OFFSETS = 16;
+const RESULT_LIMIT = 100;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const PUBLIC_KEY = process.env.PUBLIC_KEY;
 
@@ -12,6 +13,7 @@ module.exports = {
   CHARACTERS_PATH,
   COMICS_PATH,
   NUM_OF_OFFSETS,
+  RESULT_LIMIT,
   PRIVATE_KEY,
   PUBLIC_KEY
 }

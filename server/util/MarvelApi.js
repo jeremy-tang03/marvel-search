@@ -20,7 +20,7 @@ async function getJSON(url) {
     const { ts, hash } = generateAuthParams();
     url.search = new URLSearchParams({
       offset,
-      limit: 100,
+      limit: Config.RESULT_LIMIT,
       ts,
       hash,
       apikey: Config.PUBLIC_KEY,
