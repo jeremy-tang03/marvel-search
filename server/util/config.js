@@ -1,5 +1,4 @@
 require('dotenv').config();
-const MD5 = require('crypto-js/md5.js')
 
 const API_URL = 'https://gateway.marvel.com/';
 const CHARACTERS_PATH = 'v1/public/characters';
