@@ -9,4 +9,5 @@ temp*
 markdown_tools/
 **/node_modules/
 .ssh/
-config.js
+config.env
+
