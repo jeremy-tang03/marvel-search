@@ -15,6 +15,7 @@ async function getJSON(url) {
     return data;
   }
   
+  // Gets an array of characters based on the result limit
   async function getCharacters(offset) {
     const url = new URL(Config.API_URL + Config.CHARACTERS_PATH);
     const { ts, hash } = generateAuthParams();
@@ -30,8 +31,10 @@ async function getJSON(url) {
     return results;
   }
   
+  // Returns an array of all marvel characters from the API
   async function getAllCharacterData() {
     const characters = [];
+
     const dataSets = await Promise.all(
       [...Array(Config.NUM_OF_OFFSETS)].map((_, index) => getCharacters(index * 100))
     );
@@ -41,9 +44,12 @@ async function getJSON(url) {
       });
       characters.push(...charData);
     });
+
+    // Filter out characters that have no comics
     return characters.filter(char => char.comics.available > 0);
   }
   
+  // Generates a timestamp and hash 
   function generateAuthParams() {
     const ts = Date.now();
     const hash = MD5(ts + Config.PRIVATE_KEY + Config.PUBLIC_KEY).toString();
