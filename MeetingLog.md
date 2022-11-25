@@ -24,4 +24,19 @@
    clicks on a character, they will be able to see a chart of the number of comics they have appeared in over the years.
 
    * Paul will will work on API methods then work on front end. Matthew and Jeremy will focus on getting the back end setup.
+
+# 2022-11-25 Friday 3pm, in person
+   Attendees: Jeremy, Matthew, Paul
+   Minute taker: Paul
+   ## problems/todo
+   * Seeding the MongoDB database
+   * Designing the UI of the website
+   * Fetch the comics from the API
+   * Setting express routes
+
+   ## discussion / work
+   * We're now going to use plotly instead of chart.js to visualize the data
+   * Paul will focus on creating the frontend UI with react
+   * Matthew will work on populating the database with the Marvel characters and comics
+   * Jeremy will work on creating the API methods to allow express to interact with the database
   
