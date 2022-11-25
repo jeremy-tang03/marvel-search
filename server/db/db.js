@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-const dbURL = config.env.ATLAS_URI;
+const dbURL = process.env.ATLAS_URI
 const { MongoCLient } = require("mongodb");
 let instance;
 
@@ -35,8 +35,8 @@ class db {
     }
 
     // params array of objects
-    async insertCharacters(charObjArr) {
-        instance.collection.insertMany(charObjArr);
+    async insertMany(ObjArr) {
+       return instance.collection.insertMany(ObjArr);
     }
     
     // TODO return character names
