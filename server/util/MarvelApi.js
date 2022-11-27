@@ -116,4 +116,4 @@ function generateAuthParams() {
   return { ts, hash };
 }
 
-module.exports = getAllCharacterData;
+module.exports = {getAllCharacterData, getAllSeriesData};
