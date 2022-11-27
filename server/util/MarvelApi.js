@@ -52,7 +52,7 @@ async function getAllCharacterData() {
   const characters = [];
 
   const dataSets = await Promise.all(
-    [...Array(1)].map((_, index) => getCharacters(index * 100))
+    [...Array(Config.NUM_OF_OFFSETS_CHARS)].map((_, index) => getCharacters(index * 100))
   );
   dataSets.forEach((data) => {
     const charData = [...data].map(async ({ id, name, thumbnail, series }) => {
