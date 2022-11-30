@@ -39,4 +39,18 @@
    * Paul will focus on creating the frontend UI with react
    * Matthew will work on populating the database with the Marvel characters and comics
    * Jeremy will work on creating the API methods to allow express to interact with the database
+
+# 2022-11-30 Wednesday 2pm, in person
+   Attendees: Jeremy, Matthew, Paul
+   Minute taker: Matthew
+   ## problems/todo
+   * Dataset too big and small depending on what we chose to display. If we grab all the data it is too big. Otherwise, it is too small.
+   * fix bugs in db branch, complete seeding script
+   * complete routing + swagger
+   * Add documentation
+   * Display data
+   * Create test
+   ## discussion / work
+   * We will try our best
+
   
