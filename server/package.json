@@ -1,0 +1,31 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/520-01-F22/section01/projteam05/final-project.git"
+  },
+  "keywords": [],
+  "author": "Matthew Toledo, Paul Patrick Rabanal, Jeremy Tang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/520-01-F22/section01/projteam05/final-project/issues"
+  },
+  "homepage": "https://gitlab.com/520-01-F22/section01/projteam05/final-project#readme",
+  "devDependencies": {
+    "jest": "^29.3.1",
+    "supertest": "^6.3.1"
+  },
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongodb": "^4.12.0"
+  }
+}
