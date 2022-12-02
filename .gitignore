@@ -10,3 +10,4 @@ markdown_tools/
 **/node_modules/
 .ssh/
 .env
+.DS_store
