@@ -10,7 +10,8 @@ async function getJSON(url) {
   });
   const data = await res.json();
   if (!res.ok) {
-    throw new Error('ERROR: (${res.status})');
+    console.error(res.status)
+    throw new Error("ERROR: " + res.status);
   }
   return data;
 }
@@ -78,4 +79,11 @@ function generateAuthParams() {
   return { ts, hash };
 }
 
+
+(async ()=>{
+  let data = await getAllCharacterData();
+  console.log(data);
+})()
+
 module.exports = getAllCharacterData;
+
