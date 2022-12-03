@@ -4,7 +4,7 @@ const dbURL = process.env.ATLAS_URI
 const { MongoCLient } = require("mongodb");
 let instance;
 
-class db {
+module.exports = class db {
     constructor() {
         if (!instance) {
             instance = this
