@@ -118,8 +118,9 @@ function generateAuthParams() {
 
 module.exports = {getAllCharacterData, getAllSeriesData};
 
+// quick testing
 
-(async()=>{
-  let data = await getAllCharacterData()
-  console.log(data)
-})()
+// (async()=>{
+//   let data = await getAllCharacterData()
+//   console.log(data)
+// })()
