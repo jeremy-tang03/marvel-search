@@ -1,5 +1,6 @@
 const Config = require('./config.js');
 const MD5 = require('crypto-js/md5.js');
+const fetch = require("node-fetch").fetch
 
 async function getJSON(url) {
   const res = await fetch(url, {
