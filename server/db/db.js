@@ -1,7 +1,8 @@
 require("dotenv").config();
 
 const dbURL = process.env.ATLAS_URI
-const { MongoCLient } = require("mongodb");
+// console.log(dbURL)
+const MongoCLient = require("mongodb").MongoClient
 let instance;
 
 module.exports = class db {
