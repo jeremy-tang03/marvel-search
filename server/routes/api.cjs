@@ -6,6 +6,6 @@ router.get("/", (req, res) => {
 })
 
 // TODO add endpoints for client side
-// fetch from db
+// fetch from db, query string matching name, query specific character
 
 module.exports = router;
