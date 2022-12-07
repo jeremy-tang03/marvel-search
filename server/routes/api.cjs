@@ -3,7 +3,8 @@ const router = express.Router();
 const DB = require("../db/db.js");
 
 const db = new DB();
-await db.connect("marvel", "characters");
+
+(async () => await db.connect("marvel", "characters"))();
 
 router.get("/", (req, res) => {
   res.send("Use \"/get/{id}\" or \"/search/{query}\"");
