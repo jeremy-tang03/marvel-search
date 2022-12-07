@@ -42,11 +42,11 @@ module.exports = class db {
     
     // query with exact name
     async queryCharacter(queryId) {
-        return await instance.collection("characters").find({id : queryId})
+        return await instance.collection(collName).findOne({id : queryId});
     }
 
-    // query for all characters containing search
-    aysnc queryAllContaining(search) {
-
+    // query for all characters containing search, case insensitive
+    async queryAllContaining(search) {
+        return await instance.collection(collName).find({name: {$regex: search, $options: "i"}});
     }
 }
