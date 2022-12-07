@@ -10,7 +10,7 @@ async function getJSON(url) {
   });
   const data = await res.json();
   if (!res.ok) {
-    throw new Error('ERROR: (${res.status})');
+    throw new Error(`ERROR: (${res.status})`);
   }
   return data;
 }
@@ -30,7 +30,6 @@ async function getCharacters(offset) {
   const { results } = data;
   return results;
 }
-
 // Returns an array of all marvel characters from the API
 async function getAllCharacterData() {
   const characters = [];
