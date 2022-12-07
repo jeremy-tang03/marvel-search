@@ -2,7 +2,7 @@ const DB = require("../db/DB.js");
 const marvelApi = require("./MarvelApi.js");
 
 (async () => {
-    let data = await marvelApi.getAllCharacterData();
+    let data = await marvelApi();
     console.log(data)
     try{
         const db = new DB();

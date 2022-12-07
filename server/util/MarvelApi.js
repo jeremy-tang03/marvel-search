@@ -1,6 +1,5 @@
 const Config = require('./config.js');
 const MD5 = require('crypto-js/md5.js');
-const { config } = require('dotenv');
 
 async function getJSON(url) {
   const res = await fetch(url, {
@@ -11,8 +10,7 @@ async function getJSON(url) {
   });
   const data = await res.json();
   if (!res.ok) {
-    console.error(res.status)
-    throw new Error("ERROR: " + res.status);
+    throw new Error(`ERROR: (${res.status})`);
   }
   return data;
 }
@@ -29,11 +27,9 @@ async function getCharacters(offset) {
     apikey: Config.PUBLIC_KEY,
   });
   const { data } = await getJSON(url);
-  console.log(data);
   const { results } = data;
   return results;
 }
-
 // Returns an array of all marvel characters from the API
 async function getAllCharacterData() {
   const characters = [];
@@ -81,11 +77,4 @@ function generateAuthParams() {
   return { ts, hash };
 }
 
-
-(async ()=>{
-  let data = await getAllCharacterData();
-  console.log(data);
-})()
-
 module.exports = getAllCharacterData;
-
