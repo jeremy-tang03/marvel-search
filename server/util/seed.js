@@ -8,7 +8,6 @@ const marvelApi = require("./MarvelApi.js");
         const db = new DB();
         await db.connect("marvel", "characters")
         let num = await db.insertMany(data)
-        console.log("test")
     }
     catch(e) {
         console.error("Connection error while seeding," + e);

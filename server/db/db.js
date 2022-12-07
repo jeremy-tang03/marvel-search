@@ -40,7 +40,13 @@ module.exports = class db {
        return instance.collection.insertMany(ObjArr);
     }
     
-    // TODO return character names
-    
-    // TODO return character data
+    // query with exact name
+    async queryCharacter(queryId) {
+        return await instance.collection("characters").find({id : queryId})
+    }
+
+    // query for all characters containing search
+    aysnc queryAllContaining(search) {
+
+    }
 }
