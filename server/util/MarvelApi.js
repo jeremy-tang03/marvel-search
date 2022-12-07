@@ -1,5 +1,6 @@
 const Config = require('./config.js');
 const MD5 = require('crypto-js/md5.js');
+const { config } = require('dotenv');
 
 async function getJSON(url) {
   const res = await fetch(url, {
@@ -10,7 +11,8 @@ async function getJSON(url) {
   });
   const data = await res.json();
   if (!res.ok) {
-    throw new Error('ERROR: (${res.status})');
+    console.error(res.status);
+    // throw new Error('ERROR: (${res.status})');
   }
   return data;
 }
@@ -27,6 +29,7 @@ async function getCharacters(offset) {
     apikey: Config.PUBLIC_KEY,
   });
   const { data } = await getJSON(url);
+  console.log(data);
   const { results } = data;
   return results;
 }
@@ -60,7 +63,7 @@ async function getAllCharacterData() {
         id,
         name,
         thumbnail,
-        allSeries: await getAvailableSeries(series),
+        series,
       };
     });
     characters.push(...charData);
@@ -117,3 +120,9 @@ function generateAuthParams() {
 }
 
 module.exports = {getAllCharacterData, getAllSeriesData};
+
+(async () => {
+  console.log(Config.PUBLIC_KEY)
+  const data = await getCharacters(0)
+  console.log(data)
+})();
