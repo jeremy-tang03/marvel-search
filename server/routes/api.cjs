@@ -19,7 +19,4 @@ router.get("/search/:query", (req, res) => {
     }
 })
 
-// TODO add endpoints for client side
-// fetch from db, query string matching name, query specific character
-
 module.exports = router;
