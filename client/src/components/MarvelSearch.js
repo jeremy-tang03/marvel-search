@@ -115,7 +115,7 @@ function MarvelSearch() {
         <h1 className="f2 white title">Marvel Graphs</h1>
       </div>
       <div>
-        <form onSubmit={searchCharacters}>
+        <form onSubmit={searchCharacters} className="mt4">
           <input
             className="pa3 bb br3 grow b--none bg-light-red ma3"
             type="search"
