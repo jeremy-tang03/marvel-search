@@ -112,7 +112,7 @@ function MarvelSearch() {
   return (
     <section className="relative">
       <div>
-        <h2 className="f2">Marvel Graphs</h2>
+        <h1 className="f2 white title">Marvel Graphs</h1>
       </div>
       <div>
         <form onSubmit={searchCharacters}>
