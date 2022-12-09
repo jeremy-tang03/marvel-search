@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Scroll from './Scroll';
 import SearchList from './SearchList';
+import Chart from './Chart';
 
 const testChars = [
   {
@@ -67,42 +68,64 @@ const testChars = [
 
 function MarvelSearch() {
   const [searchedCharacters, setSearchedCharacters] = useState([]);
+  const [isChartVisible, setIsChartVisible] = useState(false);
 
   function searchCharacters(e) {
     e.preventDefault();
     const query = e.target.search.value;
-    const filteredChars = testChars.filter(char => char.name.toLowerCase().includes(query.toLowerCase()))
-    setSearchedCharacters(filteredChars)
+
+    if (query === '') return;
+
+    const filteredChars = testChars.filter((char) =>
+      char.name.toLowerCase().includes(query.toLowerCase())
+    );
+    setSearchedCharacters(filteredChars);
+  }
+
+  function showChart() {
+    if (isChartVisible) return;
+
+    setIsChartVisible(true);
+  }
+
+  function closeChart() {
+    setIsChartVisible(false);
   }
 
   function searchList() {
     return (
       <Scroll>
-        <SearchList searchedCharacters={searchedCharacters} />
+        <SearchList
+          searchedCharacters={searchedCharacters}
+          onCharClick={showChart}
+        />
       </Scroll>
     );
   }
 
   return (
-    <section>
+    <section className="relative">
       <div>
         <h2 className="f2">Marvel Graphs</h2>
       </div>
       <div>
-        <form onSubmit={searchCharacters} >
+        <form onSubmit={searchCharacters}>
           <input
-          className="pa3 bb br3 grow b--none bg-light-red ma3"
+            className="pa3 bb br3 grow b--none bg-light-red ma3"
             type="search"
             name="search"
             placeholder="Search Marvel Characters"
           />
-          <button type="submit"
-          className="pa3 bb br3 grow b--none bg-white ma1"
-          >Search
+          <button
+            type="submit"
+            className="pa3 bb br3 grow b--none bg-white ma1"
+          >
+            Search
           </button>
         </form>
       </div>
       {searchList()}
+      {isChartVisible ? <Chart clickClose={closeChart} /> : null}
     </section>
   );
 }
