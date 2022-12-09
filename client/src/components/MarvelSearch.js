@@ -35,10 +35,10 @@ const testChars = [
       path: 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available',
       extension: 'jpg',
     },
-    numComics: 0,
-    numSeries: 0,
-    numStories: 0,
-    numEvents: 0,
+    numComics: 53,
+    numSeries: 62,
+    numStories: 23,
+    numEvents: 10,
   },
   {
     id: 1011136,
@@ -69,6 +69,7 @@ const testChars = [
 function MarvelSearch() {
   const [searchedCharacters, setSearchedCharacters] = useState([]);
   const [isChartVisible, setIsChartVisible] = useState(false);
+  const [chartData, setChartData] = useState({});
 
   function searchCharacters(e) {
     e.preventDefault();
@@ -82,8 +83,13 @@ function MarvelSearch() {
     setSearchedCharacters(filteredChars);
   }
 
-  function showChart() {
+  function showChart(e) {
     if (isChartVisible) return;
+
+    const charId = e.target.closest('.character-card').dataset.id;
+    const selectedChar = testChars.find((char) => char.id === Number(charId));
+    console.log(selectedChar);
+    setChartData(selectedChar);
 
     setIsChartVisible(true);
   }
@@ -125,7 +131,18 @@ function MarvelSearch() {
         </form>
       </div>
       {searchList()}
-      {isChartVisible ? <Chart clickClose={closeChart} /> : null}
+      {isChartVisible ? (
+        <Chart
+          clickClose={closeChart}
+          yData={[
+            chartData?.numComics,
+            chartData?.numSeries,
+            chartData?.numStories,
+            chartData?.numEvents,
+          ]}
+          chartTitle={chartData.name}
+        />
+      ) : null}
     </section>
   );
 }
