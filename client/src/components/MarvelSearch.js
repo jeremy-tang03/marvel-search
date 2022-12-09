@@ -86,16 +86,20 @@ function MarvelSearch() {
   return (
     <section>
       <div>
-        <h2>Marvel Graphs</h2>
+        <h2 className="f2">Marvel Graphs</h2>
       </div>
       <div>
-        <form onSubmit={searchCharacters}>
+        <form onSubmit={searchCharacters} >
           <input
+          className="pa3 bb br3 grow b--none bg-light-red ma3"
             type="search"
             name="search"
             placeholder="Search Marvel Characters"
           />
-          <button type="submit">Submit</button>
+          <button type="submit"
+          className="pa3 bb br3 grow b--none bg-white ma1"
+          >Search
+          </button>
         </form>
       </div>
       {searchList()}
