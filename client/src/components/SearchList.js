@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './Card';
 
 function SearchList({ searchedCharacters, onCharClick }) {
-  const searchedChars = searchedCharacters.map((char, index) => (
+  const searchedChars = searchedCharacters.map((char, index) => 
     <Card
       id={char.id}
       name={char.name}
@@ -10,7 +10,7 @@ function SearchList({ searchedCharacters, onCharClick }) {
       onCharacterClick={onCharClick}
       key={index}
     />
-  ));
+  );
   return <div>{searchedChars}</div>;
 }
 
