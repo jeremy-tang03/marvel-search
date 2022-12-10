@@ -9,7 +9,8 @@ app.use(express.static("../client/build"));
 
 // set browser caching middleware
 app.use((req, res, next) => {
-  res.set("Cache-control", "public, max-age=31536000")
+  res.set("Cache-control", "public, max-age=31536000");
+  next();
 })
 app.use("/api", api);
 app.use((req, res) => {
