@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Scroll from './Scroll';
 import SearchList from './SearchList';
 import Chart from './Chart';
+import Spinner from './Spinner';
 
 function MarvelSearch() {
   const [searchedCharacters, setSearchedCharacters] = useState([]);
@@ -96,6 +97,7 @@ function MarvelSearch() {
           chartTitle={chartData.name}
         />
       ) : null}
+      <Spinner />
     </section>
   );
 }
