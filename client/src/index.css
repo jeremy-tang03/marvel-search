@@ -71,8 +71,8 @@ code {
   top: 29px;
   left: 29px;
   border-radius: 50%;
-  border: 14px solid #000;
-  border-color: #ffffff transparent #ffffff transparent;
+  border: 14px solid rgb(0, 0, 0);
+  border-color: #000000 transparent #000000 transparent;
   animation: ldio-xedk3eylmgq 1s linear infinite;
 }
 .ldio-xedk3eylmgq > div:nth-child(2) { border-color: transparent }
@@ -90,14 +90,14 @@ code {
   height: 14px;
   top: -14px;
   left: 50px;
-  background: #ffffff;
+  background: #000000;
   border-radius: 50%;
-  box-shadow: 0 128px 0 0 #ffffff;
+  box-shadow: 0 128px 0 0 #000000;
 }
 .ldio-xedk3eylmgq > div:nth-child(2) div:after { 
   left: -14px;
   top: 50px;
-  box-shadow: 128px 0 0 0 #ffffff;
+  box-shadow: 128px 0 0 0 #000000;
 }
 .loadingio-spinner-dual-ring-jrsp87sb5zh {
   width: 200px;
