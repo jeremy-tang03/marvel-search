@@ -1,14 +1,12 @@
 const express = require("express");
-const app = express();
+const router = express.Router();
 const DB = require("../db/db.js");
 
 const db = new DB();
 
 (async () => await db.connect("marvel", "characters"))();
 
-app.use(express.static('../client/build'));
-
-app.get("/", (req, res) => {
+router.get("/", (req, res) => {
   res.send("Use \"/get/{id}\" or \"/search/{query}\"");
 })
 
@@ -16,7 +14,7 @@ app.get("/", (req, res) => {
 // returns json array of 1 element
 // /api/get/id_here
 
-app.get("/get/:id", async (req, res) => {
+router.get("/get/:id", async (req, res) => {
   if('id' in req.params) {
     // fetch character from db
     let data = await db.queryCharacter(req.params.id);
@@ -33,7 +31,7 @@ app.get("/get/:id", async (req, res) => {
 // returns json array
 // /api/search/query_here
 
-app.get("/search/:query", async (req, res) => {
+router.get("/search/:query", async (req, res) => {
   if('query' in req.params) {
     // fetch list of characters from db
     let data = await db.queryAllContaining(req.params.query);
@@ -44,4 +42,4 @@ app.get("/search/:query", async (req, res) => {
   }
 });
 
-module.exports = app;
+module.exports = router;
