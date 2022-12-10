@@ -42,9 +42,10 @@ module.exports = class db {
     return instance.collection.insertMany(ObjArr);
   }
     
-  // query with exact name
+  // query with exact id
   async queryCharacter(queryId) {
-    return await instance.collection.findOne({id : queryId});
+    let intID = parseInt(queryId)
+    return await instance.collection.find({id: intID}).toArray();
   }
 
   // query for all characters containing search, case insensitive

@@ -13,9 +13,9 @@ router.get("/", (req, res) => {
 
 router.get("/get/:id", async (req, res) => {
   if('id' in req.params) {
-    res.json({'id' : req.params['id']});
     // fetch character from db
     let data = await db.queryCharacter(req.params.id);
+    console.log(req.params.id)
     console.log(data);
     res.json(data);
   } else {
@@ -33,6 +33,6 @@ router.get("/search/:query", async (req, res) => {
   } else {
     res.status(400).json({error: 'not supported'});
   }
-})
+});
 
 module.exports = router;
