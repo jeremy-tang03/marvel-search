@@ -7,6 +7,7 @@ import Spinner from './Spinner';
 function MarvelSearch() {
   const [searchedCharacters, setSearchedCharacters] = useState([]);
   const [isChartVisible, setIsChartVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [chartData, setChartData] = useState({});
 
   async function getJSON(url) {
@@ -30,9 +31,10 @@ function MarvelSearch() {
 
       if (query === '') return;
 
+      setIsLoading(true);
       const queriedChars = await getJSON(`/api/search/${query}`);
-
       setSearchedCharacters(queriedChars);
+      setIsLoading(false);
     } catch (error) {
       console.log(error.message);
     }
@@ -42,8 +44,11 @@ function MarvelSearch() {
     if (isChartVisible) return;
 
     const charId = e.target.closest('.character-card').dataset.id;
+
+    setIsLoading(true);
     const [selectedChar] = await getJSON(`/api/get/${charId}`);
     setChartData(selectedChar);
+    setIsLoading(false);
 
     setIsChartVisible(true);
   }
@@ -97,7 +102,7 @@ function MarvelSearch() {
           chartTitle={chartData.name}
         />
       ) : null}
-      <Spinner />
+      {isLoading ? <Spinner /> : null}
     </section>
   );
 }
