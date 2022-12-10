@@ -9,6 +9,7 @@ function MarvelSearch() {
   const [isChartVisible, setIsChartVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [chartData, setChartData] = useState({});
+  const [message, setMessage] = useState('');
 
   async function getJSON(url) {
     const res = await fetch(url, {
@@ -26,6 +27,7 @@ function MarvelSearch() {
 
   async function searchCharacters(e) {
     e.preventDefault();
+    setMessage('');
     try {
       const query = e.target.search.value;
 
@@ -34,27 +36,47 @@ function MarvelSearch() {
       setIsLoading(true);
       const queriedChars = await getJSON(`/api/search/${query}`);
       setSearchedCharacters(queriedChars);
+      if (queriedChars.length === 0) setMessage('No characters were found.');
       setIsLoading(false);
     } catch (error) {
-      console.log(error.message);
+      displayDisappearingMessage(
+        `${error.message} Could not fetch characters.`,
+        3000
+      );
+      setIsLoading(false);
     }
   }
 
   async function showChart(e) {
+    setMessage('');
     if (isChartVisible) return;
 
     const charId = e.target.closest('.character-card').dataset.id;
 
-    setIsLoading(true);
-    const [selectedChar] = await getJSON(`/api/get/${charId}`);
-    setChartData(selectedChar);
-    setIsLoading(false);
-
-    setIsChartVisible(true);
+    try {
+      setIsLoading(true);
+      const [selectedChar] = await getJSON(`/api/get/${charId}`);
+      setChartData(selectedChar);
+      setIsLoading(false);
+      setIsChartVisible(true);
+    } catch (error) {
+      displayDisappearingMessage(
+        `${error.message} Could not load chart.`,
+        3000
+      );
+      setIsLoading(false);
+    }
   }
 
   function closeChart() {
     setIsChartVisible(false);
+  }
+
+  function displayDisappearingMessage(message, duration) {
+    setMessage(message);
+    setTimeout(() => {
+      setMessage('');
+    }, duration);
   }
 
   function searchList() {
@@ -102,6 +124,7 @@ function MarvelSearch() {
           chartTitle={chartData.name}
         />
       ) : null}
+      {message !== '' ? <p className="message absolute">{message}</p> : null}
       {isLoading ? <Spinner /> : null}
     </section>
   );
