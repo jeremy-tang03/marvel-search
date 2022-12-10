@@ -1,27 +1,10 @@
 {
-  "name": "final-project",
-  "version": "1.0.0",
-  "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/520-01-F22/section01/projteam05/final-project.git"
-  },
-  "keywords": [],
-  "author": "Matthew Toledo, Paul Patrick Rabanal, Jeremy Tang",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://gitlab.com/520-01-F22/section01/projteam05/final-project/issues"
-  },
-  "homepage": "https://gitlab.com/520-01-F22/section01/projteam05/final-project#readme",
-  "devDependencies": {
-    "jest": "^29.3.1",
-    "supertest": "^6.3.1"
-  },
   "dependencies": {
-    "express": "^4.18.2"
-  }
+    "eslint": "^8.29.0",
+    "react-lazy-load-image-component": "^1.5.6"
+  },
+  "scripts": {
+    "build": "cd client && npm install && npm run build && cd ../server && npm install",
+    "start": "cd server && node ./bin/www"
+  } 
 }

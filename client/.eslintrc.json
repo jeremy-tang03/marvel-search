@@ -1,7 +1,8 @@
 {
   // See http://eslint.org/docs/rules/
   "extends": [
-        "eslint:recommended"
+        "eslint:recommended",
+        "plugin:react/recommended"
   ],
 
   "env": {
@@ -62,6 +63,7 @@
     "no-tabs": "error",
     "quotes": "off",
     "space-infix-ops": "warn",
-    "space-unary-ops": "warn"
+    "space-unary-ops": "warn",
+    "react/prop-types": "off"
   }
 }
