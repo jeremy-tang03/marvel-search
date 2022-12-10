@@ -49,6 +49,6 @@ module.exports = class db {
 
   // query for all characters containing search, case insensitive
   async queryAllContaining(search) {
-    return await instance.collection.find({name: {$regex: search, $options: "i"}});
+    return await instance.collection.find({name: {$regex: search, $options: "i"}}).toArray();
   }
 }

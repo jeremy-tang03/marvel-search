@@ -9,17 +9,27 @@ const db = new DB();
 router.get("/", (req, res) => {
   res.send("Use \"/get/{id}\" or \"/search/{query}\"");
 })
-router.get("/get/:id", (req, res) => {
+
+
+router.get("/get/:id", async (req, res) => {
   if('id' in req.params) {
     res.json({'id' : req.params['id']});
+    // fetch character from db
+    let data = await db.queryCharacter(req.params.id);
+    console.log(data);
+    res.json(data);
   } else {
     res.status(400).json({error: 'not supported'});
   }
 });
+
+
 router.get("/search/:query", async (req, res) => {
   if('query' in req.params) {
-    console.log(await db.queryAllContaining(req.params.query));
-    res.json({'query': req.params['query']});
+    // fetch list of characters from db
+    let data = await db.queryAllContaining(req.params.query);
+    console.log(data);
+    res.json(data);
   } else {
     res.status(400).json({error: 'not supported'});
   }
