@@ -10,6 +10,9 @@ router.get("/", (req, res) => {
   res.send("Use \"/get/{id}\" or \"/search/{query}\"");
 })
 
+// route for specific character query
+// returns json array of 1 element
+// /api/get/id_here
 
 router.get("/get/:id", async (req, res) => {
   if('id' in req.params) {
@@ -23,6 +26,10 @@ router.get("/get/:id", async (req, res) => {
   }
 });
 
+
+// route for general search keyword query
+// returns json array
+// /api/search/query_here
 
 router.get("/search/:query", async (req, res) => {
   if('query' in req.params) {
