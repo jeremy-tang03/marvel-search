@@ -31,12 +31,16 @@ function MarvelSearch() {
     try {
       const query = e.target.search.value;
 
-      if (query === '') return;
+      if (query === '') {
+        return;
+      }
 
       setIsLoading(true);
       const queriedChars = await getJSON(`/api/search/${query}`);
       setSearchedCharacters(queriedChars);
-      if (queriedChars.length === 0) setMessage('No characters were found.');
+      if (queriedChars.length === 0) {
+        setMessage('No characters were found.');
+      }
       setIsLoading(false);
     } catch (error) {
       displayDisappearingMessage(
@@ -49,7 +53,9 @@ function MarvelSearch() {
 
   async function showChart(e) {
     setMessage('');
-    if (isChartVisible) return;
+    if (isChartVisible) {
+      return;
+    }
 
     const charId = e.target.closest('.character-card').dataset.id;
 
@@ -112,7 +118,7 @@ function MarvelSearch() {
         </form>
       </div>
       {searchList()}
-      {isChartVisible ? (
+      {isChartVisible ? 
         <Chart
           clickClose={closeChart}
           yData={[
@@ -123,7 +129,7 @@ function MarvelSearch() {
           ]}
           chartTitle={chartData.name}
         />
-      ) : null}
+        : null}
       {message !== '' ? <p className="message absolute">{message}</p> : null}
       {isLoading ? <Spinner /> : null}
     </section>
