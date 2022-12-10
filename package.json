@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "eslint": "^8.29.0"
+    "eslint": "^8.29.0",
+    "react-lazy-load-image-component": "^1.5.6"
   }
 }
