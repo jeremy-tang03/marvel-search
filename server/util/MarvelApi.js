@@ -10,15 +10,7 @@ async function getJSON(url) {
   });
   const data = await res.json();
   if (!res.ok) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    throw new Error("ERROR: " + res.status);
-=======
     throw new Error(`ERROR: (${res.status})`);
->>>>>>> a374d60af4a33eefd009be627cd458710ca835e3
-=======
-    throw new Error(`ERROR: (${res.status})`);
->>>>>>> 4ae97a8fc6c2e1c347887670472fbffc969660b4
   }
   return data;
 }
@@ -85,19 +77,5 @@ function generateAuthParams() {
   return { ts, hash };
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-module.exports = {getAllCharacterData, getAllSeriesData};
-
-// quick testing
-
-// (async()=>{
-//   let data = await getAllCharacterData()
-//   console.log(data)
-// })()
-=======
 module.exports = getAllCharacterData;
->>>>>>> a374d60af4a33eefd009be627cd458710ca835e3
-=======
-module.exports = getAllCharacterData;
->>>>>>> 4ae97a8fc6c2e1c347887670472fbffc969660b4
+
