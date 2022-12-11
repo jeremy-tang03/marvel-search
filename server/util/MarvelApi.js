@@ -78,3 +78,4 @@ function generateAuthParams() {
 }
 
 module.exports = getAllCharacterData;
+
