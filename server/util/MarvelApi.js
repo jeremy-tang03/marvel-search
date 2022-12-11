@@ -65,11 +65,6 @@ async function getAllCharacterData() {
   return returnedChars;
 }
 
-(async () => {
-  const data = await getAllCharacterData();
-  console.log(data)
-})();
-
 // Generates a timestamp and hash
 function generateAuthParams() {
   const ts = Date.now();
