@@ -11,6 +11,7 @@ function MarvelSearch() {
   const [chartData, setChartData] = useState({});
   const [message, setMessage] = useState('');
 
+  // Get JSON data from a given URL
   async function getJSON(url) {
     const res = await fetch(url, {
       method: 'GET',
@@ -25,6 +26,7 @@ function MarvelSearch() {
     return data;
   }
 
+  // Get all characters based on the user's query in the search input field
   async function searchCharacters(e) {
     e.preventDefault();
     setMessage('');
@@ -51,6 +53,7 @@ function MarvelSearch() {
     }
   }
 
+  // Display chart showing the clicked character's data
   async function showChart(e) {
     setMessage('');
     if (isChartVisible) {
@@ -85,6 +88,7 @@ function MarvelSearch() {
     }, duration);
   }
 
+  // Display list of characters
   function searchList() {
     return (
       <Scroll>
@@ -104,7 +108,7 @@ function MarvelSearch() {
       <div>
         <form onSubmit={searchCharacters} className="mt3">
           <input
-            className="pa3 bb br3 grow b--none bg-light-red mb3 mr3"
+            className="pa3 w-20 bb br3 grow b--none bg-black-30 mb3 mr3 white search"
             type="search"
             name="search"
             placeholder="Search Marvel Characters"
