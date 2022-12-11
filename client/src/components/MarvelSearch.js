@@ -11,10 +11,7 @@ function MarvelSearch() {
   const [chartData, setChartData] = useState({});
   const [message, setMessage] = useState('');
 
-<<<<<<< HEAD
-=======
   // Get JSON data from a given URL
->>>>>>> 4ae97a8fc6c2e1c347887670472fbffc969660b4
   async function getJSON(url) {
     const res = await fetch(url, {
       method: 'GET',
@@ -29,10 +26,7 @@ function MarvelSearch() {
     return data;
   }
 
-<<<<<<< HEAD
-=======
   // Get all characters based on the user's query in the search input field
->>>>>>> 4ae97a8fc6c2e1c347887670472fbffc969660b4
   async function searchCharacters(e) {
     e.preventDefault();
     setMessage('');
@@ -59,10 +53,7 @@ function MarvelSearch() {
     }
   }
 
-<<<<<<< HEAD
-=======
   // Display chart showing the clicked character's data
->>>>>>> 4ae97a8fc6c2e1c347887670472fbffc969660b4
   async function showChart(e) {
     setMessage('');
     if (isChartVisible) {
@@ -97,10 +88,7 @@ function MarvelSearch() {
     }, duration);
   }
 
-<<<<<<< HEAD
-=======
   // Display list of characters
->>>>>>> 4ae97a8fc6c2e1c347887670472fbffc969660b4
   function searchList() {
     return (
       <Scroll>
@@ -120,11 +108,7 @@ function MarvelSearch() {
       <div>
         <form onSubmit={searchCharacters} className="mt3">
           <input
-<<<<<<< HEAD
-            className="pa3 bb br3 grow b--none bg-light-red mb3 mr3"
-=======
             className="pa3 w-20 bb br3 grow b--none bg-black-30 mb3 mr3 white search"
->>>>>>> 4ae97a8fc6c2e1c347887670472fbffc969660b4
             type="search"
             name="search"
             placeholder="Search Marvel Characters"
