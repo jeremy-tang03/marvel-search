@@ -1,4 +1,5 @@
 import React from 'react';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function Card({ id, name, thumbnail, onCharacterClick }) {
   const imageUrl = `${thumbnail.path}.${thumbnail.extension}`;
@@ -8,13 +9,12 @@ function Card({ id, name, thumbnail, onCharacterClick }) {
       data-id={id}
       onClick={onCharacterClick}
     >
-      <img
+      <LazyLoadImage
         className="br3 dib"
         src={imageUrl}
         alt={`${name}`}
         width="200px"
         height="200px"
-        loading="lazy"
       />
       <p>{name}</p>
     </div>
