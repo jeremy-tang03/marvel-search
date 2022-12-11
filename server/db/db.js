@@ -29,6 +29,9 @@ module.exports = class db {
     instance.db = await instance.client.db(dbName);
     console.log("Connected to MongoDB database " + dbName);
     instance.collection = await instance.db.collection(collName)
+    // index name
+    instance.collection.createIndex({"name": 1});
+    instance.collection.createIndex({"id": 1}, {"unique": true})
   }
     
   // close db
