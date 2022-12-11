@@ -108,7 +108,7 @@ function MarvelSearch() {
       <div>
         <form onSubmit={searchCharacters} className="mt3">
           <input
-            className="pa3 bb br3 grow b--none bg-light-red mb3 mr3"
+            className="pa3 w-20 bb br3 grow b--none bg-black-30 mb3 mr3 white search"
             type="search"
             name="search"
             placeholder="Search Marvel Characters"
