@@ -1,0 +1,8 @@
+services:
+  server:
+    image: mern-node
+    build:
+      context: .
+      dockerfile: server.Dockerfile
+    ports:
+      - "3000:3000"
