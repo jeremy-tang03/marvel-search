@@ -1,4 +1,4 @@
-// const DB = require("../db/DB.js");
+const DB = require("../db/DB.js");
 const marvelApi = require("./MarvelApi.js");
 
 (async () => {
@@ -7,10 +7,10 @@ const marvelApi = require("./MarvelApi.js");
     console.log(data)
     try{
         // connect to db
-        // const db = new DB();
-        // await db.connect("marvel", "characters");
+        const db = new DB();
+        await db.connect("marvel", "characters");
         // insert data from api to DB
-        // let num = await db.insertMany(data);
+        let num = await db.insertMany(data);
     }
     catch(e) {
         console.error("Connection error while seeding," + e);
