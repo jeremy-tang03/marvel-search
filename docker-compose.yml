@@ -13,6 +13,6 @@ services:
     ports:
       - "27017:27017"
     environment:
-      ATLAS_URI: "mongodb://mongodb:27017/myData"
+      - DB_URI=mongodb://mongodb:27017/myData
 volumes:
   mongodata:

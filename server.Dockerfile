@@ -1,6 +1,6 @@
 FROM node:16
 
-ENV ATLAS_URI=mongodb+srv://admin:adminpassword@cluster0.yknaelz.mongodb.net/?retryWrites=true&w=majority
+ENV DB_URI=mongodb+srv://admin:adminpassword@cluster0.yknaelz.mongodb.net/?retryWrites=true&w=majority
 ENV PORT=3000
 
 WORKDIR /app
