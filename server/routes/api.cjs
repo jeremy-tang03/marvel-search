@@ -35,8 +35,7 @@ router.get("/search/:query", async (req, res) => {
   if('query' in req.params) {
     // fetch list of characters from db
     let data = await db.queryAllContaining(req.params.query);
-    console.log(req.params.query);
-	  console.log(data);
+    console.log(data);
     res.json(data);
   } else {
     res.status(400).json({error: 'not supported'});
